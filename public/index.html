@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>Автодиспетчер — новая модель</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brandmark">ЖД</span><div><strong>Автодиспетчер</strong><small>Рабочее место диспетчера</small></div></div>
+      <span class="connection"><i></i> Карта готова</span>
+    </header>
+    <main class="workspace">
+      <nav class="workspace-tabs" role="tablist" aria-label="Разделы рабочего места">
+        <button class="workspace-tab" id="tab-overview" role="tab" aria-controls="panel-overview" type="button"><span class="tab-icon" aria-hidden="true">◈</span><span>Карта</span></button>
+        <button class="workspace-tab" id="tab-trains" role="tab" aria-controls="panel-trains" type="button"><span class="tab-icon" aria-hidden="true">▤</span><span>Поезда</span></button>
+        <button class="workspace-tab" id="tab-journal" role="tab" aria-controls="panel-journal" type="button"><span class="tab-icon" aria-hidden="true">◷</span><span>Журнал</span></button>
+      </nav>
+      <section class="workspace-panel overview" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+        <aside class="overview-sidebar" aria-label="Панель диспетчера">
+          <div class="sidebar-head">
+            <p class="eyebrow">РАБОЧЕЕ МЕСТО ДИСПЕТЧЕРА</p>
+            <h1>Новая модель движения</h1>
+            <p class="muted">Карта готова. Данные для новой модели ещё не добавлены.</p>
+          </div>
+          <div class="sidebar-content">
+            <section class="status-card" aria-label="Состояние данных">
+              <span class="status-icon" aria-hidden="true">◎</span>
+              <div><strong>Данные не подключены</strong><p>Список составов и их положения пока пусты.</p></div>
+            </section>
+            <section class="sidebar-section">
+              <h2>Карта железных дорог</h2>
+              <p>Перемещайте карту по миру и приближайте её, чтобы посмотреть пути и станции OpenRailwayMap. Кнопка KZ вернёт к Казахстану.</p>
+              <p id="station-catalog-status">Загружаю справочник железнодорожных объектов Казахстана…</p>
+            </section>
+            <section class="sidebar-section">
+              <h2>Триаж инцидентов</h2>
+              <p>Правила оценки критичности сохраняются для новой модели. Активных оценок сейчас нет.</p>
+              <div class="level-list"><span class="level one">1</span> Ранний риск</div>
+              <div class="level-list"><span class="level two">2</span> Локальная неисправность</div>
+              <div class="level-list"><span class="level three">3</span> Высокая критичность</div>
+            </section>
+            <section class="sidebar-section assistant-panel">
+              <div class="assistant-heading"><span class="ai-icon" aria-hidden="true">✦</span><div><p class="eyebrow">ИИ-АГЕНТ</p><h2>Помощник диспетчера</h2></div></div>
+              <p>Поможет разобраться с интерфейсом. Анализ поездов появится после подключения новой модели.</p>
+              <div id="chat" class="chat" aria-live="polite"><div class="message assistant">Новая модель пока пуста. Можно спросить меня о карте и следующем шаге.</div></div>
+              <form id="chat-form" class="chat-form"><input id="chat-input" aria-label="Вопрос помощнику" maxlength="1000" placeholder="Задайте вопрос…" required><button type="submit">➤</button></form>
+              <span id="ai-mode" class="ai-mode">Проверка подключения…</span>
+            </section>
+            <details class="source-details"><summary>Источники карты и станций</summary><p>Подложка: © OpenStreetMap contributors. Железнодорожный слой: <a href="https://www.openrailwaymap.org/" target="_blank" rel="noopener">OpenRailwayMap</a> (CC BY-SA 2.0). Локальный справочник: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>), выгрузка по Казахстану от 01.10.2026, дополненная 54 точками <a href="https://github.com/mayurrawte/railroutes" target="_blank" rel="noopener">OpenStreetMap/railroutes</a> (<a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>) и станцией Кокшетау-1 из <a href="https://www.wikidata.org/wiki/Q102047169" target="_blank" rel="noopener">Wikidata</a> (CC0). Данные преобразованы для поиска и показа на карте. Это географический справочник, а не реестр действующих станций КТЖ; координаты и полноту следует проверять перед рабочим использованием. При отсутствии сети показывается упрощённая локальная карта мира.</p></details>
+          </div>
+        </aside>
+        <div class="map-panel">
+          <div class="map-heading"><div><p class="eyebrow">ИНТЕРАКТИВНАЯ КАРТА · ВЕСЬ МИР</p><h2>Железные дороги мира</h2></div><button id="expand-map" class="expand-map" type="button">На весь экран ↗</button></div>
+          <div id="map" class="map" role="region" tabindex="0" aria-label="Мировая карта железных дорог"></div>
+          <div class="map-footer"><span>© OpenStreetMap contributors · OpenRailwayMap</span><span>Данные поездов не загружены</span></div>
+        </div>
+      </section>
+      <section class="workspace-panel page-panel" id="panel-trains" role="tabpanel" aria-labelledby="tab-trains" hidden>
+        <p class="eyebrow">НОВАЯ МОДЕЛЬ</p><h1>Поезда</h1>
+        <div class="empty-state"><span class="empty-icon" aria-hidden="true">▤</span><h2>Список пока пуст</h2><p>Здесь появятся новые составы после определения источника данных и структуры модели.</p></div>
+      </section>
+      <section class="workspace-panel page-panel" id="panel-journal" role="tabpanel" aria-labelledby="tab-journal" hidden>
+        <p class="eyebrow">НОВАЯ МОДЕЛЬ</p><h1>Журнал</h1>
+        <div class="empty-state"><span class="empty-icon" aria-hidden="true">◷</span><h2>Событий пока нет</h2><p>Журнал начнёт заполняться после подключения новой модели.</p></div>
+      </section>
+    </main>
+  </div>
+  <div id="map-dialog" class="dialog" hidden><div class="dialog-card"><div class="dialog-head"><div><p class="eyebrow">ЖЕЛЕЗНЫЕ ДОРОГИ МИРА</p><h2>Подробная карта путей и станций</h2></div><button id="close-map" type="button" aria-label="Закрыть карту">×</button></div><div id="large-map" class="map large" role="region" tabindex="0" aria-label="Большая мировая карта железных дорог"></div></div></div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+:root{font-family:"Segoe UI",Inter,Arial,sans-serif;color:#203027;background:#f7f8f5;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0}
+button,input,select{font:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+.shell{min-height:100dvh}
+.topbar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 21px;background:#fff;border-bottom:1px solid #e4e9e3}
+.brand{display:flex;align-items:center;gap:12px}
+.brandmark{display:grid;place-items:center;width:43px;height:43px;color:white;background:#1da53d;border-radius:10px;font-weight:900;font-size:20px}
+.brand strong{display:block;font-size:18px;line-height:1.1}
+.brand small{display:block;margin-top:4px;color:#87948a;font-size:11px}
+.connection{display:flex;align-items:center;gap:7px;color:#348a47;font-size:12px}
+.connection i{display:block;width:8px;height:8px;border-radius:50%;background:#2ac65a}
+.workspace{display:grid;grid-template-columns:76px minmax(0,1fr);min-height:calc(100dvh - 64px)}
+.workspace-tabs{display:flex;flex-direction:column;gap:7px;padding:16px 7px;background:#fff;border-right:1px solid #e5ebe4}
+.workspace-tab{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;width:100%;min-height:74px;padding:6px 2px;border:0;border-radius:12px;background:none;color:#7a897c;font-size:11px;font-weight:700}
+.workspace-tab:hover{background:#f3f9f2;color:#218e39}
+.workspace-tab[aria-selected=true]{background:#ecf8eb;color:#159631}
+.workspace-tab:focus-visible{outline:3px solid #32ad4a;outline-offset:2px}
+.tab-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;font-size:24px;font-weight:400}
+.workspace-tab[aria-selected=true] .tab-icon{background:#d7f0d7}
+.workspace-panel{min-width:0}
+.overview{display:grid;grid-template-columns:clamp(330px,25vw,420px) minmax(0,1fr);height:calc(100dvh - 64px);min-height:610px}
+.overview-sidebar{min-width:0;overflow-y:auto;overscroll-behavior:contain;background:#fff;border-right:1px solid #e5ebe4;scrollbar-color:#dbe6da transparent}
+.sidebar-head{padding:24px 21px 21px;border-bottom:1px solid #e7ece6}
+.eyebrow{margin:0 0 7px;color:#259f41;font-size:10px;font-weight:800;letter-spacing:1.25px}
+h1,h2,p{margin-top:0}
+h1{margin-bottom:10px;font-size:27px;line-height:1.12;letter-spacing:-.6px}
+h2{font-size:17px;letter-spacing:-.2px}
+.muted,.sidebar-section p,.status-card p,.source-details p{color:#738177;font-size:13px;line-height:1.5}
+.muted{margin-bottom:0}
+.sidebar-content{padding:18px 17px 28px}
+.status-card{display:flex;align-items:flex-start;gap:12px;padding:16px;background:#f2faf0;border:1px solid #cfeacc;border-radius:13px}
+.status-icon{display:grid;place-items:center;flex:none;width:37px;height:37px;border-radius:10px;background:#ddf3dc;color:#159531;font-size:26px}
+.status-card strong{display:block;margin:2px 0 5px;font-size:15px}
+.status-card p{margin:0;font-size:12px}
+.sidebar-section{padding:21px 2px;border-bottom:1px solid #e8ede7}
+.sidebar-section h2{margin-bottom:8px}
+.sidebar-section p{margin-bottom:0}
+.level-list{display:flex;align-items:center;gap:9px;margin-top:10px;color:#465a4b;font-size:13px}
+.level{display:grid;place-items:center;width:25px;height:25px;flex:none;border-radius:7px;font-size:13px;font-weight:800}
+.level.one{background:#e7f4eb;color:#258047}.level.two{background:#fff1d7;color:#aa6a13}.level.three{background:#fbe7e4;color:#b2473e}
+.assistant-heading{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.assistant-heading .eyebrow{margin-bottom:3px}
+.assistant-heading h2{margin:0}
+.ai-icon{display:grid;place-items:center;flex:none;width:39px;height:39px;border-radius:11px;background:linear-gradient(135deg,#2dc351,#138331);color:#fff;font-size:25px}
+.chat{display:flex;flex-direction:column;align-items:flex-start;gap:8px;max-height:220px;overflow:auto;margin:14px 0}
+.message{max-width:95%;padding:10px 12px;border-radius:10px;white-space:pre-wrap;font-size:12px;line-height:1.5}
+.message.assistant{background:#f1f7f0;color:#38543c}
+.message.user{align-self:flex-end;background:#249d41;color:white}
+.chat-form{display:flex;gap:7px}
+.chat-form input{flex:1;min-width:0;padding:10px;border:1px solid #d8e5d7;border-radius:9px;font-size:12px}
+.chat-form button{width:41px;border:0;border-radius:9px;background:#20a83f;color:#fff;font-size:18px}
+.chat-form button:hover{background:#168f34}
+.ai-mode{display:block;margin-top:10px;color:#879489;font-size:11px}
+.source-details{margin-top:19px;padding:13px 14px;border:1px solid #e4ebe2;border-radius:11px;background:#f9fbf8}
+.source-details summary{cursor:pointer;color:#3b6942;font-size:12px;font-weight:700}
+.source-details p{margin:11px 0 0;font-size:11px}
+.source-details a{color:#218b39}
+.map-panel{display:flex;flex-direction:column;min-width:0;background:#f2f4ed}
+.map-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:65px;padding:11px 18px;background:#fff;border-bottom:1px solid #e4e9e3}
+.map-heading .eyebrow{margin-bottom:3px}
+.map-heading h2{margin:0;font-size:16px}
+.expand-map{flex:none;padding:9px 12px;border:1px solid #dfe8df;border-radius:9px;background:#fff;color:#218f3b;font-size:12px;font-weight:800}
+.expand-map:hover{background:#f0f9ef}
+.map{position:relative;flex:1;min-height:0;overflow:hidden;background:#acd2dc;cursor:grab;touch-action:none;user-select:none}
+.map:active{cursor:grabbing}
+.map svg{width:100%;height:100%;display:block}
+.map-footer{display:flex;justify-content:space-between;gap:10px;padding:10px 17px;background:#fff;border-top:1px solid #e4e9e3;color:#79867c;font-size:11px}
+.geo-base,.geo-tiles,.geo-rail-tiles,.geo-markers{position:absolute;inset:0;pointer-events:none}
+.geo-base{z-index:0}.geo-tiles{z-index:1}.geo-rail-tiles{z-index:2}.geo-markers{z-index:3}
+.geo-tile{position:absolute;width:256px;height:256px;max-width:none;pointer-events:none}
+.geo-tools{position:absolute;z-index:5;top:12px;left:12px;display:grid;gap:7px;width:min(320px,calc(100% - 103px));pointer-events:auto}
+.geo-tools select,.geo-search{min-height:38px;border:1px solid #e0e7df;border-radius:9px;background:#fff;box-shadow:0 2px 11px #24372724;color:#27392d}
+.geo-tools select{padding:6px 10px;font-size:13px;font-weight:700}
+.geo-search{display:flex;overflow:hidden}
+.geo-search input{flex:1;min-width:0;padding:8px 10px;border:0;background:#fff;font-size:13px;outline:none}
+.geo-search button{padding:0 11px;border:0;border-left:1px solid #e4ebe4;background:#edf8ec;color:#168c32;font-size:12px;font-weight:800}
+.geo-search-results{max-height:230px;overflow:auto;padding:6px;border:1px solid #dce7da;border-radius:9px;background:#fff;box-shadow:0 8px 26px #24372738;color:#4e6152;font-size:12px}
+.geo-search-results button{display:block;width:100%;padding:8px;border:0;border-radius:6px;background:#fff;color:#27392d;text-align:left;font-size:12px}
+  .geo-search-results button:hover{background:#eef8ed}
+  .geo-station-toggle{display:flex;align-items:center;gap:8px;width:max-content;max-width:100%;padding:7px 10px;border:1px solid #dce7da;border-radius:9px;background:#fffffff2;box-shadow:0 2px 11px #24372724;color:#29442f;font-size:12px;font-weight:700;cursor:pointer}
+  .geo-station-toggle input{width:16px;height:16px;margin:0;accent-color:#1b9f3d}
+.geo-controls{position:absolute;z-index:5;top:12px;right:12px;display:grid;gap:4px;padding:5px;border:1px solid #e5ece3;border-radius:11px;background:#fffffff0;box-shadow:0 3px 13px #26362928}
+.geo-controls button{min-width:32px;height:31px;padding:0 5px;border:0;border-radius:7px;background:#f5f8f4;color:#304633;font-size:15px;font-weight:800}
+.geo-controls button:hover{background:#e6f4e6}
+.geo-controls button:focus-visible{outline:2px solid #228c3b}
+.geo-controls button:last-child{font-size:10px}
+.geo-attribution{position:absolute;z-index:6;right:6px;bottom:6px;max-width:calc(100% - 12px);padding:4px 6px;border-radius:4px;background:#fffffff0;color:#47604c;font-size:9px}
+.geo-attribution a{color:inherit;text-decoration:none}
+.geo-error{position:absolute;z-index:6;left:10px;bottom:10px;max-width:280px;padding:8px 10px;border-radius:8px;background:#fff8e6;color:#806226;font-size:11px}
+  .geo-found-station{position:absolute;transform:translate(-50%,-125%);padding:5px 8px;border:2px solid #1b9f3d;border-radius:7px;background:#fff;color:#24462b;box-shadow:0 3px 11px #1c332b55;font-size:12px;font-weight:800;white-space:nowrap}
+  .geo-station-dot{position:absolute;width:11px;height:11px;padding:0;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:50%;background:#1b9f3d;box-shadow:0 0 0 1px #197c35,0 1px 6px #16382280;pointer-events:auto;cursor:pointer}
+  .geo-station-dot.RSTP{background:#2f81ba;box-shadow:0 0 0 1px #286e9c,0 1px 6px #16382280}
+  .geo-station-dot.RSD{background:#e0a63f;box-shadow:0 0 0 1px #9b6b20,0 1px 6px #16382280}
+  .geo-station-dot:hover,.geo-station-dot:focus-visible{z-index:2;width:15px;height:15px;outline:2px solid #fff}
+.page-panel{padding:31px clamp(23px,4vw,56px)}
+.page-panel h1{font-size:32px}
+.empty-state{display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:420px;max-width:730px;margin:25px auto;padding:40px;text-align:center;border:1px dashed #cfdccf;border-radius:18px;background:#fff}
+.empty-icon{display:grid;place-items:center;width:64px;height:64px;margin-bottom:18px;border-radius:18px;background:#edf8ed;color:#239b3d;font-size:35px}
+.empty-state h2{margin-bottom:8px;font-size:20px}
+.empty-state p{max-width:440px;margin:0;color:#758379;font-size:14px;line-height:1.55}
+.dialog{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:#15251cc7}
+.dialog-card{display:flex;flex-direction:column;width:100vw;height:100dvh;padding:15px 20px;background:#fff}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:13px}
+.dialog-head h2{margin:0}
+.dialog-head button{width:38px;height:38px;border:0;border-radius:9px;background:#edf4ec;color:#3b503e;font-size:27px}
+.dialog .map{min-height:0;border-radius:11px}
+body.modal-open{overflow:hidden}
+@media(max-width:760px){
+  .topbar{height:60px;padding:0 13px}.brandmark{width:37px;height:37px;font-size:17px}.brand strong{font-size:15px}.brand small{display:none}.connection{font-size:11px}
+  .workspace{display:block;min-height:calc(100dvh - 60px)}
+  .workspace-tabs{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:5px 8px;border-right:0;border-bottom:1px solid #e5ebe4}
+  .workspace-tab{flex-direction:row;min-height:48px;gap:5px;font-size:11px}.tab-icon{width:23px;height:23px;font-size:18px}
+  .overview{display:flex;flex-direction:column;height:auto;min-height:0}
+  .overview-sidebar{display:contents}
+  .sidebar-head{order:0;padding:17px 15px;background:#fff}.sidebar-head h1{font-size:23px}
+  .map-panel{order:1;min-height:470px}.map-heading{min-height:60px;padding:9px 12px}.map-heading h2{font-size:14px}.expand-map{padding:7px;font-size:11px}
+  .map-panel .map{height:390px;flex:none}.map-footer{font-size:10px;padding:8px 11px}
+  .sidebar-content{order:2;background:#fff;padding:17px 15px 30px}
+  .geo-tools{top:7px;left:7px;width:min(235px,calc(100% - 55px))}.geo-tools select,.geo-search input{font-size:11px}.geo-search button{font-size:11px;padding:0 8px}
+  .geo-controls{top:7px;right:7px}.geo-controls button{min-width:29px;height:29px}
+  .page-panel{padding:22px 15px}.empty-state{min-height:350px;padding:25px}
+  .dialog-card{padding:9px}.dialog-head h2{font-size:15px}
+}
